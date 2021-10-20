@@ -3,16 +3,36 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {BpasDialogComponent, BpasProgressBarComponent} from './bpas-progress-bar.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {InterceptorService} from "../Services/interceptor.service";
+import { BpasSideNavComponent } from './bpas-side-nav/bpas-side-nav.component';
+import {SidebarModule, TreeViewModule} from "@syncfusion/ej2-angular-navigations";
+import {BpasNavigationTree} from "./bpas-side-nav/bpas-navigation-tree.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BpasProgressBarComponent,
+    BpasSideNavComponent,
+    BpasNavigationTree,
+    BpasDialogComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    SidebarModule,
+    TreeViewModule,
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}]
 })
 export class AppModule { }
