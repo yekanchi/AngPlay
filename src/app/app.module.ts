@@ -10,7 +10,7 @@ import {BpasDialogComponent, BpasProgressBarComponent} from './bpas-progress-bar
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {InterceptorService} from "../Services/interceptor.service";
 import { BpasSideNavComponent } from './bpas-side-nav/bpas-side-nav.component';
-import {SidebarModule, TreeViewModule} from "@syncfusion/ej2-angular-navigations";
+import {MenuModule, SidebarModule, TreeViewModule} from "@syncfusion/ej2-angular-navigations";
 import {BpasNavigationTree} from "./bpas-side-nav/bpas-navigation-tree.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import { SharedDialogComponent } from './shared/shared-dialog.component';
@@ -24,17 +24,18 @@ import { SharedDialogComponent } from './shared/shared-dialog.component';
     BpasDialogComponent,
     SharedDialogComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatSnackBarModule,
-    MatDialogModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatProgressBarModule,
-    SidebarModule,
-    TreeViewModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatSnackBarModule,
+        MatDialogModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatProgressBarModule,
+        SidebarModule,
+        TreeViewModule,
+        MenuModule,
+    ],
   bootstrap: [AppComponent],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}]
 })

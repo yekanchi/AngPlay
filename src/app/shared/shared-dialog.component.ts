@@ -8,11 +8,11 @@ import {MatDialog} from "@angular/material/dialog";
     <h2>this is dialog component</h2>
     <ng-template>
     </ng-template>
-      <div>
-        this is true
-      </div>
-      <!--      <ng-container *ngTemplateOutlet="dialogInnerTemplate; context: {data: data}">-->
-      <!--      </ng-container>-->
+    <div>
+      this is true
+    </div>
+    <!--      <ng-container *ngTemplateOutlet="dialogInnerTemplate; context: {data: data}">-->
+    <!--      </ng-container>-->
 
   `,
 
