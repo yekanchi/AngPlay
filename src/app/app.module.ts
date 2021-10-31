@@ -14,6 +14,7 @@ import {MenuModule, SidebarModule, TreeViewModule} from "@syncfusion/ej2-angular
 import {BpasNavigationTree} from "./bpas-side-nav/bpas-navigation-tree.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import { SharedDialogComponent } from './shared/shared-dialog.component';
+import {ButtonModule} from "@syncfusion/ej2-angular-buttons";
 
 @NgModule({
   declarations: [
@@ -24,18 +25,19 @@ import { SharedDialogComponent } from './shared/shared-dialog.component';
     BpasDialogComponent,
     SharedDialogComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MatSnackBarModule,
-        MatDialogModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatProgressBarModule,
-        SidebarModule,
-        TreeViewModule,
-        MenuModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    SidebarModule,
+    TreeViewModule,
+    MenuModule,
+    ButtonModule,
+  ],
   bootstrap: [AppComponent],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}]
 })

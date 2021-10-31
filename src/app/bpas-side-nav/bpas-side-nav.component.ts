@@ -1,28 +1,37 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MenuItemModel, SidebarComponent} from "@syncfusion/ej2-angular-navigations";
 
 @Component({
   selector: 'bpas-side-nav',
   template: `
     <div id="wrapper">
-      <div class="col-lg-12 col-sm-12 col-md-12" id="sidebar-section">
-        <div class="col-lg-12 col-sm-12 col-md-12">
+      <div id="sidebar-section">
+        <div>
           <ejs-sidebar #sidebarMenuInstance
-                       position="Left"
-                       [dockSize]='10'
+                       [dockSize]='50'
                        [enableDock]='true'
+                       [enableRtl]="true"
+                       [isOpen]="true"
                        [target]='target'
                        [width]='width'
                        class="dock-menu"
-                       id="sidebar-menu">
+                       id="sidebar-menu"
+                       position="Left"
+                       type="Push">
             <div class="main-menu">
-              <p class="main-menu-header">MAIN</p>
-              <ejs-menu [items]='menuItems'
+              <ejs-menu [enableRtl]="true"
+                        [items]='menuItems'
+                        [showItemOnClick]="true"
+                        cssClass='dock-menu'
                         orientation='Vertical'
-                        cssClass='dock-menu'></ejs-menu>
+                        [template]="menuItemTemplate"
+                        title="محتوا">
+                <ng-template #menuItemTemplate let-data>
+                  <span>{{data.text}}</span>
+                </ng-template>
+              </ejs-menu>
             </div>
             <div class="action">
-              <p class="main-menu-header">ACTION</p>
               <button class="e-btn action-btn" id="action-button" (click)="openClick()">+ Button</button>
             </div>
           </ejs-sidebar>
@@ -41,20 +50,16 @@ export class BpasSideNavComponent {
   @ViewChild('sidebarMenuInstance') sidebarMenuInstance!: SidebarComponent;
   width: string = '220px';
   target: string = '.main-content';
-  enableDock: boolean = true;
-
-  constructor() {
-
-  }
 
   public menuItems: MenuItemModel[] = [
     {
       text: 'Overview',
+      url: 'designer',
       iconCss: 'icon-globe icon',
       items: [
-        {text: 'All Data'},
-        {text: 'Category2'},
-        {text: 'Category3'}
+        {text: 'طراحی فرآیند',},
+        {text: 'ویرایش فعالیت ها'},
+        {text: 'ویرایش چیدمان'}
       ]
     },
     {
@@ -130,16 +135,9 @@ export class BpasSideNavComponent {
     }
   ];
 
-  // open new tab
-  newTabClick(): void {
-    let URL = location.href.replace(location.search,'');
-    document.getElementById('newTab')?.setAttribute('href', URL.split('#')[0] + 'sidebar/sidebar-menu');
-  }
-
   openClick() {
     this.sidebarMenuInstance.hide();
   }
-
 }
 
 
