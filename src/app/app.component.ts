@@ -24,7 +24,7 @@ enableRipple(true);
       <div>
         Hello world
         <button (click)="onClick($event)">test</button>
-       
+
       </div>
     </ng-template> -->
     <!-- <bpas-progress-bar></bpas-progress-bar>
@@ -32,7 +32,6 @@ enableRipple(true);
       <button enable ejs-button (click)="onClick($event)">
         ثبت درخواست جدید
       </button>
-
     </bpas-side-nav> -->
     <div style="height: 600px; padding: 20px;">
       <ngx-monaco-editor
