@@ -29,6 +29,7 @@
     "monaco-editor": "^0.30.0",
     "ngx-monaco-editor": "^12.0.0",
     "rxjs": "~6.6.0",
+    "sql-formatter": "^4.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

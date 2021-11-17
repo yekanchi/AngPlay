@@ -17,6 +17,7 @@ import { SharedDialogComponent } from './shared/shared-dialog.component';
 import {ButtonModule} from "@syncfusion/ej2-angular-buttons";
 import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BpasCodeEditorComponent } from './components/bpas-code-editor/bpas-code-editor.component';
 
 
 const monacoConfig: NgxMonacoEditorConfig = {
@@ -31,7 +32,8 @@ const monacoConfig: NgxMonacoEditorConfig = {
     BpasSideNavComponent,
     BpasNavigationTree,
     BpasDialogComponent,
-    SharedDialogComponent
+    SharedDialogComponent,
+    BpasCodeEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -53,3 +55,4 @@ const monacoConfig: NgxMonacoEditorConfig = {
   providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}]
 })
 export class AppModule { }
+// TODO:
