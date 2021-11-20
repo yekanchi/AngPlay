@@ -18,13 +18,6 @@ import {ButtonModule} from "@syncfusion/ej2-angular-buttons";
 import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BpasCodeEditorComponent } from './components/bpas-code-editor/bpas-code-editor.component';
-
-
-const monacoConfig: NgxMonacoEditorConfig = {
-  baseUrl: 'app-name/assets', // configure base path cotaining monaco-editor directory after build default: './assets'
-  defaultOptions: { scrollBeyondLastLine: false }, // pass default options to be used
-  onMonacoLoad: () => { console.log((<any>window).monaco); } // here monaco object will be available as window.monaco use this function to extend monaco editor functionalities.
-};
 @NgModule({
   declarations: [
     AppComponent,
