@@ -1,22 +1,37 @@
-import { ChangeDetectorRef, Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { EditorComponent, NgxEditorModel } from 'ngx-monaco-editor';
 import { format } from 'sql-formatter';
 
 @Component({
   selector: 'bpas-code-editor',
-  styles: [`
-.bpas-code-editor {
-border: 2px solid black;
-border-radius: 10px;
-}
+  styles: [
+    `
+      .bpas-code-editor {
+        border: 2px solid black;
+        border-radius: 10px;
+      }
 
-.monaco-editor{
-  border: 3px solid blue;
-border-radius: 2px;
-}
-  `],
+      .monaco-editor {
+        border: 3px solid blue;
+        border-radius: 2px;
+      }
+    `,
+  ],
   template: `
-    <div class="bpas-code-editor" [style.height.px]='height' [style.width.px]="width">
+    <div
+      class="bpas-code-editor"
+      [style.height.px]="height"
+      [style.width.px]="width"
+    >
       <button (click)="format()">format</button>
       <button (click)="onThemeToggle()">Dark</button>
       <ngx-monaco-editor
@@ -25,16 +40,18 @@ border-radius: 2px;
         [options]="editorOptions"
         [(ngModel)]="code"
         [model]="model"
-        (onInit)="onInitEditor($event)">
+        (onInit)="onInitEditor($event)"
+      >
       </ngx-monaco-editor>
     </div>
-  `
+  `,
 })
 export class BpasCodeEditorComponent implements OnInit {
   @ViewChild(TemplateRef) dialogTemplate!: any;
   @ViewChild(EditorComponent) editor!: any;
-  @Input() language: 'sql' | 'javascript' | 'json' = 'javascript'
-  @Input() code = ''
+  @Input() language: 'sql' | 'javascript' | 'json' = 'javascript';
+  @Input() code = '';
+  @Output() codeChange = new EventEmitter<string>();
   @Input() fontSize = 24;
   @Input() height = 600;
   @Input() width = 1000;
@@ -44,7 +61,7 @@ export class BpasCodeEditorComponent implements OnInit {
     value: '',
     language: '',
   };
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef) {}
   monaco!: any;
 
   ngOnInit() {
@@ -70,7 +87,6 @@ export class BpasCodeEditorComponent implements OnInit {
     this.editorOptions = { ...this.editorOptions };
   }
 
-
   format() {
     switch (this.language) {
       case 'sql':
@@ -80,13 +96,14 @@ export class BpasCodeEditorComponent implements OnInit {
           uppercase: true,
           linesBetweenQueries: 2,
         });
-        this.model = { ...this.model };
+        // this.code = this.model.value;
+        // this.codeChange.emit(this.code);
         break;
       case 'javascript':
-        this.monaco.trigger('anyString', 'editor.action.formatDocument')
+        this.monaco.trigger('anyString', 'editor.action.formatDocument');
         break;
       default:
-        this.monaco.trigger('anyString', 'editor.action.formatDocument')
+        this.monaco.trigger('anyString', 'editor.action.formatDocument');
         break;
     }
   }
@@ -99,5 +116,4 @@ export class BpasCodeEditorComponent implements OnInit {
     }
     this.editorOptions = { ...this.editorOptions };
   }
-
 }
