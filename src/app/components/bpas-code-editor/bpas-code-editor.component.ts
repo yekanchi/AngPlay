@@ -1,15 +1,6 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  TemplateRef,
-  ViewChild,
-} from '@angular/core';
-import { EditorComponent, NgxEditorModel } from 'ngx-monaco-editor';
-import { format } from 'sql-formatter';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild,} from '@angular/core';
+import {EditorComponent, NgxEditorModel} from 'ngx-monaco-editor';
+import {format} from 'sql-formatter';
 
 @Component({
   selector: 'bpas-code-editor',
@@ -30,8 +21,8 @@ import { format } from 'sql-formatter';
     <div
       class="bpas-code-editor"
       [style.height.px]="height"
-      [style.width.px]="width"
-    >
+      [style.width.px]="width">
+
       <button (click)="format()">format</button>
       <button (click)="onThemeToggle()">Dark</button>
       <ngx-monaco-editor
@@ -61,12 +52,16 @@ export class BpasCodeEditorComponent implements OnInit {
     value: '',
     language: '',
   };
-  constructor(private cdr: ChangeDetectorRef) {}
+
+  constructor() {
+  }
+
   monaco!: any;
 
   ngOnInit() {
     this.setParams();
   }
+
   onInitEditor(editor: any): void {
     this.monaco = editor;
   }
@@ -83,8 +78,8 @@ export class BpasCodeEditorComponent implements OnInit {
       value: this.code,
       language: this.language,
     };
-    this.model = { ...this.model };
-    this.editorOptions = { ...this.editorOptions };
+    this.model = {...this.model};
+    this.editorOptions = {...this.editorOptions};
   }
 
   format() {
@@ -114,6 +109,6 @@ export class BpasCodeEditorComponent implements OnInit {
     } else {
       this.editorOptions.theme = 'vs-dark';
     }
-    this.editorOptions = { ...this.editorOptions };
+    this.editorOptions = {...this.editorOptions};
   }
 }

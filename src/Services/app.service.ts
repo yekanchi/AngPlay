@@ -2,7 +2,7 @@ import {ComponentFactoryResolver, Injectable, TemplateRef, ViewContainerRef} fro
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {BehaviorSubject, ReplaySubject} from 'rxjs';
 import {MatDialog} from "@angular/material/dialog";
-import {SharedDialogComponent} from "../app/shared/shared-dialog.component";
+import {BpasDialogComponent} from "../app/shared/bpas-dialog.component";
 import {Overlay} from "@angular/cdk/overlay";
 import {ComponentPortal} from "@angular/cdk/portal";
 
@@ -38,14 +38,14 @@ export class AppService {
   }
 
   showWindow(ref: TemplateRef<any>) {
-    const factory = this.cfr.resolveComponentFactory(SharedDialogComponent);
+    const factory = this.cfr.resolveComponentFactory(BpasDialogComponent);
     const component = this.appComponentRef.createComponent(factory);
-    component.instance.dialogInnerTemplate = ref;
-    component.instance.showMatDialog();
+    // component.instance.dialogInnerTemplate = ref;
+    // component.instance.showMatDialog();
   }
 
   showOverlayWindow(ref: TemplateRef<any>) {
-    const factory = this.cfr.resolveComponentFactory(SharedDialogComponent);
+    const factory = this.cfr.resolveComponentFactory(BpasDialogComponent);
     const overlayRef = this.overlay.create(
       {
         hasBackdrop: true,
@@ -57,8 +57,8 @@ export class AppService {
     });
     let portal = new ComponentPortal(factory.componentType);
 
-    let component = overlayRef.attach<SharedDialogComponent>(portal);
-    component.instance.showMatDialog();
+    let component = overlayRef.attach<BpasDialogComponent>(portal);
+    // component.instance.showMatDialog();
     // component.instance.onCloseClick.subscribe(() => {
     //   overlayRef.detach();
     // });

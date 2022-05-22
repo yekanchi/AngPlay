@@ -5,29 +5,30 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {BpasDialogComponent, BpasProgressBarComponent} from './bpas-progress-bar.component';
+import {BpasProgressBarComponent} from './shared/bpas-progress-bar.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {InterceptorService} from "../Services/interceptor.service";
-import {BpasSideNavComponent} from './bpas-side-nav/bpas-side-nav.component';
 import {MenuModule, SidebarModule, TreeViewModule} from "@syncfusion/ej2-angular-navigations";
-import {BpasNavigationTree} from "./bpas-side-nav/bpas-navigation-tree.component";
 import {MatDialogModule} from "@angular/material/dialog";
-import {SharedDialogComponent} from './shared/shared-dialog.component';
+import {BpasDialogComponent} from './shared/bpas-dialog.component';
 import {ButtonModule} from "@syncfusion/ej2-angular-buttons";
 import {MonacoEditorModule} from 'ngx-monaco-editor';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BpasCodeEditorComponent} from './components/bpas-code-editor/bpas-code-editor.component';
 import {MatIconModule} from '@angular/material/icon'
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatInputModule} from "@angular/material/input";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {DialogModule} from "@syncfusion/ej2-angular-popups";
+import {BpaNotificationEditorComponent} from "./components/bpa-notification-editor/bpa-notification-editor.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     BpasProgressBarComponent,
-    BpasSideNavComponent,
-    BpasNavigationTree,
     BpasDialogComponent,
-    SharedDialogComponent,
-    BpasCodeEditorComponent
+    BpasCodeEditorComponent,
+    BpaNotificationEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +45,12 @@ import {MatIconModule} from '@angular/material/icon'
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-    MonacoEditorModule.forRoot()
+    MonacoEditorModule.forRoot(),
+    MatTabsModule,
+    MatInputModule,
+    FlexLayoutModule,
+    DialogModule,
+    // RichTextEditorAllModule
   ],
   bootstrap: [AppComponent],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}]
