@@ -1,0 +1,99 @@
+/* PlacHoder Menu Styles: */
+.placeholder-menu-item {
+  direction: rtl;
+  text-align: right;
+  font-family: calibri;
+}
+
+/* Placeholder Editor Styles */
+
+.bpa-placeholder {
+  position: relative;
+  background-color: rgb(255, 174, 0);
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.bpa-placeholder:hover {
+  background-color: rgb(122, 122, 122);
+  color: #ddd;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.bpa-placeholder::before {
+  content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="1em" fill="red" viewBox="0 0 24 24"> <path d="M 6.59375 2 C 4.11275 2 2.097 3.92925 2 6.40625 L 2 7 L 4 7 L 4 6.5 C 4.055 5.1 5.19175 4 6.59375 4 L 7 4 L 7 2 L 6.59375 2 z M 9 2 L 9 4 L 11 4 L 11 2 L 9 2 z M 13 2 L 13 4 L 15 4 L 15 2 L 13 2 z M 17 2 L 17 4 L 17.5 4 C 18.9 4.055 20 5.19275 20 6.59375 L 20 7 L 22 7 L 22 6.59375 C 22 4.11275 20.07075 2.097 17.59375 2 L 17 2 z M 2 9 L 2 11 L 4 11 L 4 9 L 2 9 z M 20 9 L 20 11 L 22 11 L 22 9 L 20 9 z M 2 13 L 2 15 L 4 15 L 4 13 L 2 13 z M 20 13 L 20 15 L 22 15 L 22 13 L 20 13 z M 2 17 L 2 17.59375 C 2.097 20.07075 4.11375 22 6.59375 22 L 7 22 L 7 20 L 6.59375 20 C 5.19175 20 4.055 18.9 4 17.5 L 4 17 L 2 17 z M 20 17 L 20 17.40625 C 20 18.80825 18.9 19.945 17.5 20 L 17 20 L 17 22 L 17.59375 22 C 20.07075 21.903 22 19.88625 22 17.40625 L 22 17 L 20 17 z M 9 20 L 9 22 L 11 22 L 11 20 L 9 20 z M 13 20 L 13 22 L 15 22 L 15 20 L 13 20 z"/></svg>');
+  height: 20px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.bpa-placeholder::after {
+  content: attr(class) '';
+  display: none;
+  position: absolute;
+  border-radius: 10px;
+  background: rgb(21, 0, 70);
+  padding: 10px;
+  transform: translateY(50%);
+  /* margin-left: 15px; */
+  color: #fff;
+  text-align: center;
+}
+
+.bpa-placeholder:hover::after {
+  display: block;
+}
+
+/* Tribute.js Styles Modified: */
+.tribute-container {
+  text-align: right;
+  border-radius: 10px;
+}
+
+.tribute-container li {
+  padding: 10px;
+}
+
+.tribute-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  max-height: 300px;
+  max-width: 500px;
+  overflow: auto;
+  display: block;
+  z-index: 999999;
+}
+
+.tribute-container ul {
+  margin: 0;
+  margin-top: 2px;
+  padding: 0;
+  list-style: none;
+  background: #efefef;
+}
+
+.tribute-container li {
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+.tribute-container li.highlight {
+  background: #ddd;
+}
+
+.tribute-container li span {
+  font-weight: bold;
+}
+
+.tribute-container li.no-match {
+  cursor: default;
+}
+
+.tribute-container .menu-highlighted {
+  font-weight: bold;
+}
