@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "NgServe",
+			"type": "npm",
+			"script": "start",
+			"problemMatcher": [],
+			"detail": "Run Ng Serve On Local",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}

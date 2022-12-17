@@ -2,26 +2,26 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 @Component({
-  selector: 'app-test',
-  template: `
-    <p>
-      test works!
-    </p>
-  `,
-  styles: []
+	selector: 'app-test',
+	template: `
+		<bpas-notification-wrapper></bpas-notification-wrapper>
+	`,
+	styles: []
 })
 export class TestComponent implements OnInit {
-  testValue = '';
+	testValue = '';
 
-  constructor(public http: HttpClient) {
-    this.http.get("http://localhost/test", {
-      withCredentials: false
-    }).subscribe(str => {
-      this.testValue = str.toString();
-    })
-  }
+	//
+	constructor(public http: HttpClient) {
+		this.http.get<string>("http://localhost:4141/test", {
+			withCredentials: true
+		}).subscribe(str => {
+			console.log(str);
+			console.log();
+		})
+	}
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
 
 }

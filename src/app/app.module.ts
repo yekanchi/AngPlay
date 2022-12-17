@@ -20,41 +20,50 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatInputModule} from "@angular/material/input";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {DialogModule} from "@syncfusion/ej2-angular-popups";
-import {BpaNotificationEditorComponent} from "./components/bpa-notification-editor/bpa-notification-editor.component";
+import {
+	BpaNotificationEditor2Component
+} from "./components/bpa-notification-editor2/bpa-notification-editor2.component";
+import {TestComponent} from './components/test/test.component';
+import {BpaSwitchComponent} from './components/bpa-swtich/bpa-switch.component';
+import {
+	BpasNotificationWrapperComponent
+} from './components/bpas-notification-wrapper/bpas-notification-wrapper.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BpasProgressBarComponent,
-    BpasDialogComponent,
-    BpasCodeEditorComponent,
-    BpaNotificationEditorComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatSnackBarModule,
-    MatDialogModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatProgressBarModule,
-    SidebarModule,
-    TreeViewModule,
-    MenuModule,
-    ButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MonacoEditorModule.forRoot(),
-    MatTabsModule,
-    MatInputModule,
-    FlexLayoutModule,
-    DialogModule,
-    // RichTextEditorAllModule
-  ],
-  bootstrap: [AppComponent],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}]
+	declarations: [
+		AppComponent,
+		BpasProgressBarComponent,
+		BpasDialogComponent,
+		BpasCodeEditorComponent,
+		BpaNotificationEditor2Component,
+		TestComponent,
+		BpaSwitchComponent,
+		BpasNotificationWrapperComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		MatSnackBarModule,
+		HttpClientModule,
+		BrowserAnimationsModule,
+		MatDialogModule,
+		MatProgressBarModule,
+		SidebarModule,
+		TreeViewModule,
+		MenuModule,
+		ButtonModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MatIconModule,
+		MonacoEditorModule.forRoot(),
+		MatTabsModule,
+		MatInputModule,
+		FlexLayoutModule,
+		DialogModule,
+		// RichTextEditorAllModule
+	],
+	bootstrap: [AppComponent],
+	providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}]
 })
 export class AppModule {
 }
-

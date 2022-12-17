@@ -1,6 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-import Tribute from "tributejs";
-import {NumberParser} from "@syncfusion/ej2-base/intl";
+import Tribute from 'tributejs';
+import {NumberParser} from '@syncfusion/ej2-base/intl';
 
 @Component({
   selector: 'bpa-notification-editor2',
@@ -39,10 +39,15 @@ export class BpaNotificationEditor2Component extends NumberParser {
       values: placeholders,
       selectTemplate: function (placeholderItem) {
         const ph = placeholderItem.original;
-        if (ph.placeholderValueType === PlaceholderValueType.Link)
-          return ``;
-        const element = ph.placeholderValueType === PlaceholderValueType.Inline ? 'span' : 'div';
-        const br = ph.placeholderValueType === PlaceholderValueType.Inline ? '' : '</br>';
+        if (ph.placeholderValueType === PlaceholderValueType.Link) return ``;
+        const element =
+          ph.placeholderValueType === PlaceholderValueType.Inline
+            ? 'span'
+            : 'div';
+        const br =
+          ph.placeholderValueType === PlaceholderValueType.Inline
+            ? ''
+            : '</br>';
         return `
 <${element}
 class="bpa-placeholder ${ph.name}"
@@ -85,7 +90,7 @@ export class PlaceholderVm {
 export enum PlaceholderValueType {
   Inline = 0,
   Block = 1,
-  Link = 2
+  Link = 2,
 }
 
 export let placeHolders: PlaceholderVm[] = [
@@ -95,7 +100,7 @@ export let placeHolders: PlaceholderVm[] = [
     title: 'درخواست دهنده',
     keyId: '65656',
     keyName: 'initiator',
-    placeholderValueType: PlaceholderValueType.Inline
+    placeholderValueType: PlaceholderValueType.Inline,
   },
   {
     placeholderId: 1,
@@ -103,8 +108,6 @@ export let placeHolders: PlaceholderVm[] = [
     title: 'جدول تاریخچه ی فرآیند',
     keyId: '65656',
     keyName: 'initiator',
-    placeholderValueType: PlaceholderValueType.Block
-  }
-]
-
-
+    placeholderValueType: PlaceholderValueType.Block,
+  },
+];
